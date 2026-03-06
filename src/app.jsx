@@ -118,7 +118,7 @@ const analyzeOutfit = async () => {
   try {
     const response = await fetch("/api/v1/messages", {
       method: "POST",
-      headers: {
+      headers: { 
         "Content-Type": "application/json",
         "x-api-key": import.meta.env.ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01", 
