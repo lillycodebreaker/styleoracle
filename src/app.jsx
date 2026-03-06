@@ -162,7 +162,6 @@ const analyzeOutfit = async () => {
   } catch (err) {
     setError(`Error: ${err.message} — key present: ${!!import.meta.env.VITE_ANTHROPIC_API_KEY}`);
     console.error("Full error:", err); // 👈 shows the real error
-    setError(`Error: ${err.message}`);
   } finally {
     setLoading(false);
   }
