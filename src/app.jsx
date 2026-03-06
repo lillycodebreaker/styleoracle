@@ -114,13 +114,14 @@ const analyzeOutfit = async () => {
   setLoading(true);
   setError(null);
   setResult(null);
-
+  console.log("Key exists:", !!import.meta.env.VITE_ANTHROPIC_API_KEY);
+  
   try {
     const response = await fetch("/api/v1/messages", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",
-        "x-api-key": import.meta.env.ANTHROPIC_API_KEY,
+        "x-api-key": import.meta.env.VITE_ANTHROPIC_API_KEY,
         "anthropic-version": "2023-06-01", 
         "anthropic-dangerous-direct-browser-access": "true"
       },
@@ -159,6 +160,7 @@ const analyzeOutfit = async () => {
     const parsed = JSON.parse(clean);
     setResult(parsed);
   } catch (err) {
+    setError(`Error: ${err.message} — key present: ${!!import.meta.env.VITE_ANTHROPIC_API_KEY}`);
     console.error("Full error:", err); // 👈 shows the real error
     setError(`Error: ${err.message}`);
   } finally {
