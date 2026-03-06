@@ -106,7 +106,7 @@ export default function FashionRecommender() {
 
   const getAmazonLink = (searchQuery) => {
     const encoded = encodeURIComponent(searchQuery + " women fashion");
-    return `https://www.amazon.com/s?k=${encoded}&ref=fashion_ai`;
+    return `https://www.amazon.com/s?k=${encoded}&ref=fashion_recommender_ai`;
   };
 
 const analyzeOutfit = async () => {
